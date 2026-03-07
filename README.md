@@ -212,4 +212,4 @@ Global state is managed via React's `useReducer` with a custom `StoreContext`, p
 
 ---
 
-I Have used the API directly with using .env file as it was for testing only and please make sure of it.
+I Have used the API directly without using .env file as it was for testing only and please make sure of it.
