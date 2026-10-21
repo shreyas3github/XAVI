@@ -1,37 +1,61 @@
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:3776AB,100:3178C6&height=140&section=header" alt="Decorative gradient banner" width="100%" />
+
 # XAVI — Full-Stack E-Commerce Platform
 
 A modern, dark-themed e-commerce web application built with **Django REST Framework** (backend) and **React + Vite** (frontend), featuring Razorpay payment integration and token-based authentication.
 
----
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 
-## ✨ Features
+</div>
 
-- 🛍️ Browse and search products with ratings & reviews
-- 🛒 Persistent shopping cart (localStorage)
-- 🔐 User registration & JWT-style token authentication
-- 📦 Order placement with shipping address
-- 💳 Razorpay payment gateway integration (INR)
-- ⭐ Product review & rating system
-- 🗄️ Database seeder with 10 sample products
-- 🌐 CORS-enabled REST API
+## Table of Contents
 
----
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Default Admin Credentials](#default-admin-credentials)
+- [API Reference](#api-reference)
+- [Payment Integration](#payment-integration)
+- [Database Models](#database-models)
+- [Seeder](#seeder)
+- [Configuration](#configuration)
+- [Frontend State Management](#frontend-state-management)
 
-## 🏗️ Tech Stack
+## Features
 
-| Layer     | Technology                                      |
-|-----------|-------------------------------------------------|
-| Backend   | Python · Django 6 · Django REST Framework       |
-| Auth      | DRF Token Authentication                        |
-| Database  | SQLite3 (dev)                                   |
-| Payment   | Razorpay SDK                                    |
-| Frontend  | React 19 · Vite 7 · React Router DOM 7          |
-| HTTP      | Axios                                           |
-| Styling   | Vanilla CSS (dark theme)                        |
+- Browse and search products with ratings & reviews.
+- Maintain a persistent shopping cart stored in `localStorage`.
+- Register users and authenticate with JWT-style tokens.
+- Place orders with a shipping address.
+- Integrate the Razorpay payment gateway in INR.
+- Submit product reviews and ratings.
+- Seed the database with 10 sample products.
+- Expose a CORS-enabled REST API.
 
----
+## Tech Stack
 
-## 📁 Project Structure
+| Layer | Technologies |
+|-------|--------------|
+| Backend | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white) |
+| Database | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white) |
+| Frontend | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) |
+| Payment | Razorpay SDK |
+| HTTP | Axios |
+| Styling | Vanilla CSS (dark theme) |
+
+## Project Structure
+
+<details><summary>Expand</summary>
 
 ```
 XAVI/
@@ -52,9 +76,9 @@ XAVI/
 └── db.sqlite3
 ```
 
----
+</details>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -62,18 +86,16 @@ XAVI/
 - Node.js 18+
 - pip & npm
 
----
+### Installation
 
-### 1. Clone the Repository
+#### 1. Clone the Repository
 
 ```bash
 git clone <your-repo-url>
 cd XAVI
 ```
 
----
-
-### 2. Backend Setup
+#### 2. Backend Setup
 
 ```bash
 # Create and activate virtual environment
@@ -96,9 +118,7 @@ python manage.py runserver
 
 The API will be available at **http://localhost:8000**.
 
----
-
-### 3. Frontend Setup
+#### 3. Frontend Setup
 
 ```bash
 cd frontend
@@ -109,56 +129,50 @@ npm run dev
 
 The React app will be available at **http://localhost:5173**.
 
----
+## Default Admin Credentials (after seeding)
 
-## 🔑 Default Admin Credentials (after seeding)
-
-| Field    | Value               |
-|----------|---------------------|
-| Email    | admin@example.com   |
-| Password | adminpass           |
+| Field | Value |
+|-------|-------|
+| Email | admin@example.com |
+| Password | adminpass |
 
 Access the Django admin panel at **http://localhost:8000/admin**.
 
----
-
-## 🌐 API Reference
+## API Reference
 
 Base URL: `http://localhost:8000/api/`
 
 ### Authentication
 
-| Method | Endpoint              | Description          | Auth Required |
-|--------|-----------------------|----------------------|---------------|
-| POST   | `users/register/`     | Register a new user  | No            |
-| POST   | `users/login/`        | Login & get token    | No            |
-| GET    | `users/profile/`      | Get logged-in user   | ✅ Yes         |
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `users/register/` | Register a new user | No |
+| POST | `users/login/` | Login & get token | No |
+| GET | `users/profile/` | Get logged-in user | Yes |
 
 ### Products
 
-| Method | Endpoint                      | Description           | Auth Required |
-|--------|-------------------------------|-----------------------|---------------|
-| GET    | `products/`                   | List all products     | No            |
-| GET    | `products/<id>/`              | Get product details   | No            |
-| POST   | `products/<id>/reviews/`      | Submit a review       | ✅ Yes         |
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `products/` | List all products | No |
+| GET | `products/<id>/` | Get product details | No |
+| POST | `products/<id>/reviews/` | Submit a review | Yes |
 
 ### Orders
 
-| Method | Endpoint                      | Description           | Auth Required |
-|--------|-------------------------------|-----------------------|---------------|
-| POST   | `orders/add/`                 | Create a new order    | ✅ Yes         |
-| GET    | `orders/<id>/`                | Get order by ID       | ✅ Yes         |
-| PUT    | `orders/<id>/pay/`            | Mark order as paid    | ✅ Yes         |
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `orders/add/` | Create a new order | Yes |
+| GET | `orders/<id>/` | Get order by ID | Yes |
+| PUT | `orders/<id>/pay/` | Mark order as paid | Yes |
 
 ### Razorpay
 
-| Method | Endpoint                      | Description                  | Auth Required |
-|--------|-------------------------------|------------------------------|---------------|
-| POST   | `orders/<id>/razorpay/`       | Create Razorpay payment order | ✅ Yes         |
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `orders/<id>/razorpay/` | Create Razorpay payment order | Yes |
 
----
-
-## 💳 Payment Integration
+## Payment Integration
 
 This project uses **Razorpay** in test mode.
 
@@ -166,32 +180,27 @@ This project uses **Razorpay** in test mode.
 - Test keys are configured in `ecommerce/views.py`.
 - Use [Razorpay test card details](https://razorpay.com/docs/payments/payments/test-card-upi-details/) during checkout.
 
-> ⚠️ **Important:** Replace the test API keys with your production keys before deploying.
+> [!IMPORTANT]
+> Replace the test API keys with your production keys before deploying.
 
----
+## Database Models
 
-## 🛢️ Database Models
-
-| Model           | Description                                      |
-|-----------------|--------------------------------------------------|
-| `Product`       | Name, brand, category, price, stock, image, rating |
-| `Review`        | Rating & comment linked to a product and user    |
-| `Order`         | Payment method, tax, shipping, total, paid status |
-| `OrderItem`     | Individual line items within an order            |
+| Model | Description |
+|-------|-------------|
+| `Product` | Name, brand, category, price, stock, image, rating |
+| `Review` | Rating & comment linked to a product and user |
+| `Order` | Payment method, tax, shipping, total, paid status |
+| `OrderItem` | Individual line items within an order |
 | `ShippingAddress` | Delivery address linked one-to-one to an order |
 
----
-
-## 🌱 Seeder
+## Seeder
 
 Run `python seed.py` to populate the database with:
 
 - **1 admin superuser** (`admin@example.com` / `adminpass`)
 - **10 sample products** across categories: Electronics, Computers, Wearables, Photography, Accessories
 
----
-
-## 🔧 Configuration
+## Configuration
 
 Key settings are in `backend/settings.py`:
 
@@ -201,15 +210,11 @@ CORS_ALLOW_ALL_ORIGINS = True  # Restrict in production
 MEDIA_URL = '/images/'     # Served product images
 ```
 
----
-
-## 📦 Frontend State Management
+## Frontend State Management
 
 Global state is managed via React's `useReducer` with a custom `StoreContext`, persisted to `localStorage`. It handles:
 
 - **Cart** — add, remove, clear items; save shipping address
 - **User** — login / logout session
-
----
 
 I Have used the API directly without using .env file as it was for testing only and please make sure of it.
